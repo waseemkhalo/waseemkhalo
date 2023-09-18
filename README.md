@@ -96,8 +96,6 @@ let Waseem = {
   
 </div>
 
-<div></div>
-
 <div style="display: flex;">
   <img height=200 src="https://github-readme-stats.vercel.app/api?username=waseemkhalo&&show_icons=true&theme=graywhite">
   <img height=200 src="https://github-readme-stats.vercel.app/api/top-langs/?username=waseemkhalo&layout=compact" >
