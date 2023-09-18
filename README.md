@@ -1,5 +1,4 @@
-### Hey,
-## I'm Waseem 👋
+### Hey, I'm Waseem 👋
 
 <!--
 
@@ -15,3 +14,5 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
+<img src="https://github-readme-stats.vercel.app/api?username=waseemkhalo&&show_icons=true&title_color=ffffff&icon_color=bb2acf&text_color=daf7dc&bg_color=151515">
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=waseemkhalo&layout=compact&bg_color=30,e96443,904e95&title_color=fff&text_color=fff)](https://github.com/waseemkhalo/github-readme-stats)
