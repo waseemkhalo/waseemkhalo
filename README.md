@@ -1,5 +1,5 @@
 ### Hey, I'm Waseem 👋
-
+![BC babbbyy](https://media.licdn.com/dms/image/D5616AQH4x7Mdt4geHg/profile-displaybackgroundimage-shrink_350_1400/0/1678906841577?e=1700697600&v=beta&t=BKKWdXjV-pkUIevM_KB-6htT2T32JBIB9kq61r2qM7U)
 <!--
 
 Here are some ideas to get you started:
@@ -14,5 +14,5 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-<img src="https://github-readme-stats.vercel.app/api?username=waseemkhalo&&show_icons=true&title_color=ffffff&icon_color=bb2acf&text_color=daf7dc&bg_color=151515">
+<img src="https://github-readme-stats.vercel.app/api?username=waseemkhalo&&show_icons=true&theme=graywhite">
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=waseemkhalo)](https://github.com/waseemkhalo/github-readme-stats)
