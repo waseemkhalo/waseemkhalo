@@ -1,7 +1,9 @@
 ## Hey, I'm Waseem 👋
 ![BC babbbyy](https://media.licdn.com/dms/image/D5616AQH4x7Mdt4geHg/profile-displaybackgroundimage-shrink_350_1400/0/1678906841577?e=1700697600&v=beta&t=BKKWdXjV-pkUIevM_KB-6htT2T32JBIB9kq61r2qM7U)
 
-### Hi there! I'm Waseem Khalo, a passionate software developer with a love for coding and design. I enjoy building web applications and creating visually appealing user interfaces. Feel free to explore my profile and connect with me.
+### I am a software engineer, driven by the desire to create impactful, visually stunning, and user-friendly products that solve real-world problems and enhance the overall user experience.
+
+When I'm not behind my desk working, my heart draws me to the great outdoors, where I am captivated by the beauty of nature and the art of capturing it through photography and videography. Whether I'm hiking through breathtaking landscapes or documenting the wonders of the natural world, every frame I capture brings me inspiration and peace.
 
 ``` 
 let Waseem = {
