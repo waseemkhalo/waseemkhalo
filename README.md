@@ -11,7 +11,7 @@ let Waseem = {
   interests: ["History", "Art", "Lifting Weights", "Cooking"],
   currently: {
     studying: ["Data structures & Algorithms", "DVA-C02: AWS Certified Developer - Associate"], 
-    reading: ["Angel by Jason Calacanis", "The Sword of Allah, Khalid bin Al-Waleed by Akram A.I."]
+    reading: ["Angel by Jason Calacanis", "Biography of Khalid bin Al-Waleed by Akram A.I."]
   }
 };
 
