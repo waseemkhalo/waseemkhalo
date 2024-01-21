@@ -5,7 +5,7 @@
 
 When I'm not behind my desk working, my heart draws me to the great outdoors, where I am captivated by the beauty of nature and the art of capturing it through photography and videography. Whether I'm hiking through breathtaking landscapes or documenting the wonders of the natural world, every frame I capture brings me inspiration and peace. 
 
-``` 
+```
 let Waseem = {
   ethnicity: ['Middle Eastern'], 
   favouriteMovies: ['The Batman (2022)', 'The Town', 'Upgrade'],
@@ -13,7 +13,10 @@ let Waseem = {
   interests: ["History", "Art", "Lifting Weights", "Cooking"],
   currently: {
     studying: ["Flutter, and Algorithms"], 
-    reading: ["How to Read a Book, The Classical Guide to Intelligent Reading by Mortimer J Alder & Charles Van Doren", "Meditations by Marcus Aurelius"]
+    reading: [
+      "How to Read a Book, The Classical Guide to Intelligent Reading by Mortimer J Alder & Charles Van Doren",
+      "Meditations by Marcus Aurelius"
+    ]
   }
 };
 
@@ -29,6 +32,10 @@ let Waseem = {
 
 #### Technologies
 <div>
+
+<a href="https://flutter.dev/" target="_blank" rel="noreferrer">
+<img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg alt="flutter" width="40" height="40"/>
+</a>
   
 <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
