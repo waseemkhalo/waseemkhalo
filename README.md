@@ -1,9 +1,8 @@
 ![image](https://github.com/waseemkhalo/waseemkhalo/assets/19737225/47343d79-99c7-4041-8d94-a93a02ad81e7)## Hey, I'm Waseem 👋
-![BC babbbyy]([https://media.licdn.com/dms/image/D5616AQH4x7Mdt4geHg/profile-displaybackgroundimage-shrink_350_1400/0/1678906841577?e=1700697600&v=beta&t=BKKWdXjV-pkUIevM_KB-6htT2T32JBIB9kq61r2qM7U](https://media.licdn.com/dms/image/D5616AQH4x7Mdt4geHg/profile-displaybackgroundimage-shrink_350_1400/0/1678906843333?e=1706745600&v=beta&t=x3EYZ1VpS7v8a-6tH81lCzFu-vPi3bhLOX8RdeV6m3E))
 
 ### I am a software engineer, driven by the desire to create impactful, visually stunning, and user-friendly products that solve real-world problems and enhance the overall user experience.
 
-When I'm not behind my desk working, my heart draws me to the great outdoors, where I am captivated by the beauty of nature and the art of capturing it through photography and videography. Whether I'm hiking through breathtaking landscapes or documenting the wonders of the natural world, every frame I capture brings me inspiration and peace.
+When I'm not behind my desk working, my heart draws me to the great outdoors, where I am captivated by the beauty of nature and the art of capturing it through photography and videography. Whether I'm hiking through breathtaking landscapes or documenting the wonders of the natural world, every frame I capture brings me inspiration and peace. 
 
 ``` 
 let Waseem = {
@@ -12,8 +11,8 @@ let Waseem = {
   humanLanguages: ['English', 'Arabic'],
   interests: ["History", "Art", "Lifting Weights", "Cooking"],
   currently: {
-    studying: ["Data structures & Algorithms", "DVA-C02: AWS Certified Developer - Associate"], 
-    reading: ["Angel by Jason Calacanis", "Biography of Khalid bin Al-Waleed by Akram A.I."]
+    studying: ["Flutter, and Algorithms"], 
+    reading: ["How to Read a Book, The Classical Guide to Intelligent Reading by Mortimer J Alder & Charles Van Doren", "Meditations by Marcus Aurelius"]
   }
 };
 
