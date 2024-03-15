@@ -3,8 +3,6 @@
 
 ### I am a software engineer, driven by the desire to create impactful, visually stunning, and user-friendly products that solve real-world problems and enhance the overall user experience.
 
-When I'm not behind my desk working, my heart draws me to the great outdoors, where I am captivated by the beauty of nature and the art of capturing it through photography and videography. Whether I'm hiking through breathtaking landscapes or documenting the wonders of the natural world, every frame I capture brings me inspiration and peace. 
-
 ```
 let Waseem = {
   ethnicity: ['Middle Eastern'], 
@@ -21,12 +19,6 @@ let Waseem = {
 };
 
 ``` 
-
-<p align="center"> 
-  Visitor count<br>
-  <img src="https://profile-counter.glitch.me/waseemkhalo/count.svg" />
-</p>
-
 
 ### Tools and Technologies
 
