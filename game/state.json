@@ -1,8 +1,15 @@
 {
-  "round": 0,
+  "round": 1,
   "streak": 0,
   "best": 0,
-  "pan": 1,
+  "pan": 0,
   "wind": 1,
-  "last": []
+  "last": [
+    {
+      "u": "waseemkhalo",
+      "l": "RIGHT",
+      "ok": false,
+      "land": 3
+    }
+  ]
 }

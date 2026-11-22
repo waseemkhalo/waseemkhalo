@@ -6,7 +6,7 @@ Build something generational
 Launch Sunny Side into the frying pan. The wind pushes it one lane, and sometimes a gust pushes it further. Everyone plays the same board, so one crack resets the community streak.
 
 <p align="center">
-  <a href="https://eggverse.co"><img src="game/board.svg?v=0" alt="Sunny Side Up: the current board" width="840"></a>
+  <a href="https://eggverse.co"><img src="game/board.svg?v=1" alt="Sunny Side Up: the current board" width="840"></a>
 </p>
 
 <p align="center">
