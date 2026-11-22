@@ -54,7 +54,7 @@ text{font-family:'Courier New',Courier,monospace;font-weight:700}
     const x = W / 2 - 30 + i * 24;
     s += `<polygon points="${S.wind > 0 ? `${x},104 ${x + 12},110 ${x},116` : `${x + 12},104 ${x},110 ${x + 12},116`}" fill="${C.lav}" opacity="${0.4 + i * 0.2}"/>`;
   }
-  s += `<text x="${W - 40}" y="84" font-size="13" fill="${C.cream}" text-anchor="end">LAST LAUNCHES</text>`;
+  if (S.last.length) s += `<text x="${W - 40}" y="84" font-size="13" fill="${C.cream}" text-anchor="end">LAST LAUNCHES</text>`;
   S.last.slice(0, 3).forEach((r, i) => {
     s += `<text x="${W - 40}" y="${104 + i * 18}" font-size="12" fill="${C.lav}" text-anchor="end">@${esc(r.u)} ${r.l} <tspan fill="${r.ok ? C.yolk : C.coral}">${r.ok ? "SUNNY SIDE UP" : "CRACKED"}</tspan></text>`;
   });
