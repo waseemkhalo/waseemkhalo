@@ -5,7 +5,7 @@
 //
 //   node game/play.mjs            resolve a launch (env TITLE, PLAYER)
 //   node game/play.mjs render     just redraw the board from game/state.json
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, unlinkSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -58,7 +58,7 @@ text{font-family:'Courier New',Courier,monospace;font-weight:700}
   S.last.slice(0, 3).forEach((r, i) => {
     s += `<text x="${W - 40}" y="${104 + i * 18}" font-size="12" fill="${C.lav}" text-anchor="end">@${esc(r.u)} ${r.l} <tspan fill="${r.ok ? C.yolk : C.coral}">${r.ok ? "SUNNY SIDE UP" : "CRACKED"}</tspan></text>`;
   });
-  if (last) s += `<text x="${W / 2}" y="160" font-size="18" fill="${last.ok ? C.yolk : C.coral}" text-anchor="middle">@${esc(last.u)} ${last.ok ? "MADE IT SUNNY SIDE UP!" : "CRACKED IT!"}</text>`;
+  if (last) s += `<text x="${W / 2}" y="160" font-size="18" fill="${last.ok ? C.yolk : C.coral}" text-anchor="middle">@${esc(last.u)} ${last.ok ? "MADE IT SUNNY SIDE UP!" : last.land < 0 || last.land > 2 ? "BLEW IT OFF THE BOARD!" : "CRACKED IT!"}</text>`;
   LX.forEach((x, i) => {
     s += `<rect x="${x - 70}" y="256" width="140" height="6" fill="${C.night2}"/><text x="${x}" y="290" font-size="14" fill="${C.lav}" text-anchor="middle">${LANES[i]}</text>`;
   });
@@ -70,17 +70,24 @@ text{font-family:'Courier New',Courier,monospace;font-weight:700}
   s += `<rect x="${px - 50}" y="238" width="100" height="16" rx="5" fill="#2e2e3e" stroke="${C.out}" stroke-width="3"/><rect x="${px - 44}" y="241" width="88" height="3" fill="#4a4a5e"/><rect x="${px + 50}" y="243" width="44" height="8" fill="#7a5230" stroke="${C.out}" stroke-width="2"/>`;
   // last cracked egg stays on the board where it landed
   if (last && !last.ok && last.land >= 0 && last.land <= 2 && last.land !== S.pan) s += frame("brk4", LX[last.land] - 32 * 2, 256 - 49 * 2, 2);
-  s += `<text class="blink" x="${W / 2}" y="${H - 14}" font-size="13" fill="${C.cream}" text-anchor="middle">▼ PICK A LANE BELOW · PLAY 30 PARTY GAMES AT EGGVERSE.CO</text>`;
+  s += `<text class="blink" x="${W / 2}" y="${H - 14}" font-size="13" fill="${C.cream}" text-anchor="middle">▼ PICK A LANE BELOW · PLAY ON EGGVERSE.CO</text>`;
   return s + "</svg>\n";
 }
 
+// Each round gets its own file name. GitHub serves README images from a cache for about
+// 5 minutes and ignores query strings, so a new name is the only way the board updates at once.
+const boardName = (S) => `board-${S.round}.svg`;
+const RAW = "https://raw.githubusercontent.com/waseemkhalo/waseemkhalo/main/game/";
+
 function write(S) {
   writeFileSync(STATE, JSON.stringify(S, null, 2) + "\n");
-  writeFileSync(join(DIR, "board.svg"), render(S));
+  for (const f of readdirSync(DIR)) if (/^board(-\d+)?\.svg$/.test(f)) unlinkSync(join(DIR, f));
+  writeFileSync(join(DIR, boardName(S)), render(S));
   const readme = join(ROOT, "README.md");
-  const md = readFileSync(readme, "utf8").replace(/game\/board\.svg\?v=\d+/, `game/board.svg?v=${S.round}`);
+  const md = readFileSync(readme, "utf8").replace(/game\/board(-\d+)?\.svg(\?v=\d+)?/, `game/${boardName(S)}`);
   writeFileSync(readme, md);
 }
+const RESULT = process.env.RESULT_FILE || join(DIR, "result.md");
 
 const S = JSON.parse(readFileSync(STATE, "utf8"));
 if (process.argv[2] === "render") {
@@ -90,7 +97,7 @@ if (process.argv[2] === "render") {
   const player = (process.env.PLAYER || "someone").replace(/[^A-Za-z0-9-]/g, "");
   const m = /^\s*sunnyside:\s*(left|middle|right)\s*$/i.exec(title);
   if (!m) {
-    writeFileSync(join(DIR, "result.md"), `Couldn't read a lane from "${esc(title)}". Use one of the Launch links on the [profile](https://github.com/waseemkhalo) to play.`);
+    writeFileSync(RESULT, `Couldn't read a lane from "${esc(title)}". Use a Launch link on the [profile](https://github.com/waseemkhalo).\n`);
     process.exit(0);
   }
   const aim = LANES.indexOf(m[1].toUpperCase());
@@ -109,13 +116,12 @@ if (process.argv[2] === "render") {
   S.wind = [-1, 0, 0, 1][Math.floor(Math.random() * 4)];
   write(S);
   const lines = [
-    ok ? `🍳 **Sunny Side Up!** @${player} landed it in the pan.` : `🥚 **Cracked!** Sunny Side landed ${where}, and the pan was ${LANES[pan].toLowerCase()}.`,
+    ok ? `🍳 **Sunny Side Up!** Streak ${before} → **${S.streak}**.` : `🥚 **${where === "off the board" ? "Blown off the board" : "Cracked"}.** It landed ${where === "off the board" ? where : "in the " + where + " lane"}${gust ? " after a gust" : ""}, and the pan was ${LANES[pan].toLowerCase()}. Streak back to 0.`,
     "",
-    `You aimed ${LANES[aim].toLowerCase()}${gust ? `, and a gust pushed it one more lane ${gust < 0 ? "left" : "right"}` : ""}.`,
-    ok ? `Community streak: ${before} → **${S.streak}** (best ${S.best}).` : `The community streak of ${before} resets to 0.`,
+    `<img src="${RAW}${boardName(S)}" alt="The board after your launch" width="560">`,
     "",
-    `[See the board](https://github.com/waseemkhalo) · [Play 30 party games at eggverse.co](https://eggverse.co)`,
+    `[Launch again](https://github.com/waseemkhalo) · [Play on EggVerse](https://eggverse.co)`,
   ];
-  writeFileSync(join(DIR, "result.md"), lines.join("\n") + "\n");
+  writeFileSync(RESULT, lines.join("\n") + "\n");
   console.log(lines[0]);
 }
