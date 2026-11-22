@@ -18,6 +18,8 @@ jobs:
     if: startsWith(github.event.issue.title, 'sunnyside:')
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      RESULT_FILE: ${{ runner.temp }}/result.md
     steps:
       - uses: actions/checkout@v4
 
@@ -33,14 +35,17 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md game/board.svg game/state.json
+          git add -A README.md game
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "🍳 @${PLAYER} launched Sunny Side"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push
 
-      - name: Reply and close the issue
+      # Comment first, then close, so the player always gets a reply even if the issue is already closed.
+      - name: Reply with the result
         env:
           GH_TOKEN: ${{ github.token }}
           ISSUE: ${{ github.event.issue.number }}
-        run: gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY" --comment "$(cat game/result.md)"
+        run: |
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$RESULT_FILE"
+          gh issue close "$ISSUE" --repo "$GITHUB_REPOSITORY" || true
